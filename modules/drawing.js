@@ -136,7 +136,7 @@ function calculateShopWidth(shop) {
 /**
  * @param {Entry} entry 
  * @param {boolean} [ignoreCache]
- * @returns {Promise<Canvas>} 
+ * @returns {Promise<string>} 
  */
 function drawEntry(entry, ignoreCache = false) {
     const config = require('../config.json');
@@ -253,11 +253,14 @@ function drawEntry(entry, ignoreCache = false) {
                         ctx.fillText(entry.banner.value, config.tile.banner.borderThickness, (actualHeight - measure.actualBoundingBoxAscent) / -2);
                     }
                     
-                    addCanvas(entry.hash() + '.png', canvas);
-                    console.log(`entry: \x1b[33m${entry.id}\x1b[0m, drawn in: \x1b[33m${Math.round(performance.now() - start) / 1000}\x1b[0m seconds`);  
-                    resolve(canvas);                       
+                    addCanvas(entry.hash() + '.png', canvas).then(() => {
+                        
+
+                        resolve(entry.hash() + '.png');
+                        console.log(`entry: \x1b[33m${entry.id}\x1b[0m, drawn in: \x1b[33m${Math.round(performance.now() - start) / 1000}\x1b[0m seconds`);
+                    });
                 });
-            }, reason => reject(reason));
+            }, reject);
         }
     });
 }
@@ -265,7 +268,7 @@ function drawEntry(entry, ignoreCache = false) {
 /**
  * @param {Section} section 
  * @param {boolean} [ignoreCache]
- * @returns {Promise<Canvas>}
+ * @returns {Promise<string>}
  */
 function drawSection(section, width, height, ignoreCache = false) {
     return new Promise(async (resolve, reject) => {
@@ -287,17 +290,20 @@ function drawSection(section, width, height, ignoreCache = false) {
             var promises = [];
             section.entries.forEach((entry, i) => {
                 var promise = drawEntry(entry, ignoreCache);
-                promise.then(canvas => {
-                    ctx.drawImage(canvas, coords[i].x, coords[i].y + config.section.titleSize);
+                promise.then(async name => {
+                    ctx.drawImage(await getImage(name), coords[i].x, coords[i].y + config.section.titleSize);
                 });
 
                 promises.push(promise);
             });
 
             Promise.allSettled(promises).then(() => {
-                addCanvas(section.hash() + '.png', canvas);
-                console.log(`section: \x1b[33m${section.id}\x1b[0m, drawn in: \x1b[33m${Math.round(performance.now() - start) / 1000}\x1b[0m seconds`);  
-                resolve(canvas);
+                addCanvas(section.hash() + '.png', canvas).then(() => {
+
+
+                    resolve(section.hash() + '.png');
+                    console.log(`section: \x1b[33m${section.id}\x1b[0m, drawn in: \x1b[33m${Math.round(performance.now() - start) / 1000}\x1b[0m seconds`);  
+                });
             }, reject);
         }
     });
@@ -344,8 +350,10 @@ function drawShop(shop, ignoreCache = false) {
                     var promises = [];
 
                     page.forEach((section, i) => promises.push(new Promise(async (resolve, reject) => {
-                        ctx.drawImage(await drawSection(section, width, sectionHeight, ignoreCache), 0, sectionHeight * i)
-                        resolve();
+                        drawSection(section, width, sectionHeight, ignoreCache).then(name => {
+                            ctx.drawImage(await getImage(name), 0, sectionHeight * i)
+                            resolve();
+                        });
                     })));
 
                     ctx.fillStyle = '#FFFFFF';
