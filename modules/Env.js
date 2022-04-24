@@ -11,7 +11,7 @@ function getString(key) {
  * @returns {boolean}
  */
 function getBoolean(key) {
-    return getString(key).toLowerCase() == 'true';
+    return getString(key) && getString(key).toLowerCase() == 'true';
 }
 
 /**

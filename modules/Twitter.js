@@ -26,7 +26,8 @@ async function tweetShop() {
                  `${shop.date.toLocaleDateString('en-uk', { dateStyle: 'long' })}\n\n` +
                  `Consider using code 'Chic' to support me!\n#EpicPartner`;
 
-    tweetCanvases(status, await drawShop(shop));
+    console.log('tweeting shop!!!')
+    //tweetCanvases(status, await drawShop(shop));
 }
 
 function tweet(status) {

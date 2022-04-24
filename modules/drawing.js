@@ -1,8 +1,8 @@
 const { Canvas } = require('canvas');
 const { Entry, Shop, Section, getItemShopSync, getItemShop } = require('./ItemShop');
+const { performance } = require('perf_hooks');
 
 const { downloadImage, contains, getCanvas, addCanvas, getImage, addText, clearResults, clearPages, getText, getPages } = require('./Cache');
-const { diffieHellman } = require('crypto');
 const resources = require('./resources');
 
 /**

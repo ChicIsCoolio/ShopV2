@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { loadImage, Image, Canvas } = require('canvas');
+const {performance} = require('perf_hooks');
 
 const cachePath = './cache/';
 
