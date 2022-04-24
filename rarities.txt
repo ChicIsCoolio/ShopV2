@@ -1,0 +1,102 @@
+Common: 	Color1: "D9D9D9"
+        	Color2: "B7BFC5"
+        	Color3: "747A80"
+        	Color4: "40464D"
+        	Color5: "272834"
+
+Uncommon:	Color1: "A1FE00"
+			Color2: "61BF00"
+			Color3: "008005"
+			Color4: "024F03"
+			Color5: "023302"
+
+Rare:		Color1: "00FFFB"
+			Color2: "00AFFF"
+			Color3: "0058BF"
+        	Color4: "00458A"
+        	Color5: "1A2A39"
+
+Epic:		Color1: "EC26FF"
+        	Color2: "CE59FF"
+        	Color3: "762CD3"
+        	Color4: "4C197B"
+        	Color5: "2D2039"
+
+Legendary:	Color1: "FBC363"
+        	Color2: "FF8B19"
+        	Color3: "BF4F00"
+        	Color4: "8A3C1D"
+        	Color5: "381C17"
+
+Mythic:		Color1: "FFF0A6"
+        	Color2: "E5C74F"
+        	Color3: "BF9323"
+        	Color4: "7C5D26"
+        	Color5: "392C1A"
+
+Exotic: 	Color1: "00DBFB"
+        	Color2: "00FFAC"
+        	Color3: "76BFFF"
+        	Color4: "6B3F8A"
+        	Color5: "381F38"
+
+Star Wars: 	Color1: #FFD800
+			Color2: #2555B2
+			Color3: #0A1833
+			Color4: #040A14
+			Color5: #050500
+
+Icon:       Color1: #5CF2F3
+			Color2: #2BC9CA
+			Color3: #004C71
+			Color4: #025253
+			Color5: #000F2B
+
+Cube:		Color1: #FF4FC5
+			Color2: #CE00AE
+			Color3: #A600A8
+			Color4: #5E197B
+			Color5: #392038
+
+DC:			Color1: #007AF1
+			Color2: #0053A9
+			Color3: #003FA9
+			Color4: #003169
+			Color5: #001F46
+
+Frozen:		Color1: #D8EDFF
+			Color2: #0059EE
+			Color3: #009BD5
+			Color4: #0059EE
+			Color5: #86DEFF
+
+Lava:			Color1: #FACE36
+			Color2: #DC240E
+			Color3: #9A0035
+			Color4: #5D005E
+			Color5: #3F0043
+
+	Marvel:	Color1: #ED1C24
+			Color2: #D60203
+			Color3: #B40102
+			Color4: #610608
+			Color5: #270101
+
+GamingLegends:	Color1: #8078FF
+			Color2: #5327D6
+			Color3: #3D1398
+			Color4: #28085F
+			Color5: #0C0026
+
+Shadow:		Color1: #FFFFFF
+			Color2: #999999
+			Color3: #4A4A4A
+			Color4: #171717
+			Color5: #000000
+
+Slurp:		Color1: #1DF9F7
+			Color2: #37DAAD
+			Color3: #00C3F1
+			Color4: #1B91FF
+			Color5: #1C8BDA
+

@@ -1,0 +1,211 @@
+{
+    "backgroundColor": "#242424",
+    "smartPages": {
+        "activateThreshold": 5,
+        "minSectionsPerPage": 2,
+        "sectionsPerPage": 3,
+        "maxPages": 4,
+        "pageNumberText": 64
+    },
+    "section": {
+        "titleSize": 96,
+        "titleFontSize": 96,
+        "titleTextOffset": 96,
+        "titleTextColor": "#FFFFFF"
+    },
+    "tile": {
+        "gap": 32,
+        "size": {
+            "Normal": {
+                "width": 640,
+                "height": 1024
+            },
+            "Small": {
+                "width": 640,
+                "height": 496
+            },
+            "DoubleWide": {
+                "width": 1312,
+                "height": 1024
+            }
+        },
+
+        "panel": {
+            "color": "#1F1F1F",
+            "heightA": 140,
+            "heightB": 160,
+            "shadowBlur": 50,
+
+            "rarity": {
+                "colors": {
+                    "EFortRarity::Common": {
+                        "color1": "#D9D9D9",
+                        "color2": "#B7BFC5",
+                        "color3": "#747A80",
+                        "color4": "#40464D",
+                        "color5": "#272834"
+                    },
+                    "EFortRarity::Uncommon": {
+                        "color1": "#A1FE00",
+			            "color2": "#61BF00",
+			            "color3": "#008005",
+			            "color4": "#024F03",
+			            "color5": "#023302"
+                    },
+                    "EFortRarity::Rare": {
+                        "color1": "#00FFFB",
+                        "color2": "#00AFFF",
+                        "color3": "#0058BF",
+                        "color4": "#00458A",
+                        "color5": "#1A2A39"
+                    },
+                    "EFortRarity::Epic": {
+                        "color1": "#EC26FF",
+        	            "color2": "#CE59FF",
+        	            "color3": "#762CD3",
+        	            "color4": "#4C197B",
+        	            "color5": "#2D2039"
+                    },
+                    "EFortRarity::Legendary": {
+                        "color1": "#FBC363",
+                        "color2": "#FF8B19",
+                        "color3": "#BF4F00",
+                        "color4": "#8A3C1D",
+                        "color5": "#381C17"
+                    },
+                    "EFortRarity::Mythic": {                        
+                        "color1": "#FFF0A6",
+                        "color2": "#E5C74F",
+                        "color3": "#BF9323",
+                        "color4": "#7C5D26",
+                        "color5": "#392C1A"
+                    },
+                    "EFortRarity::Exotic": {
+                        "color1": "#00DBFB",
+                        "color2": "#00FFAC",
+                        "color3": "#76BFFF",
+                        "color4": "#6B3F8A",
+                        "color5": "#381F38"
+                    },
+
+
+                    "ColumbusSeries": {
+                        "color1": "#FFD800",
+                        "color2": "#2555B2",
+			            "color3": "#0A1833",
+			            "color4": "#040A14",
+			            "color5": "#050500"
+                    },
+                    "CreatorCollabSeries": {
+                        "color1": "#5cf2f3",
+                        "color2": "#2bc9ca",
+			            "color3": "#004c71",
+			            "color4": "#025253",
+			            "color5": "#000f2b"
+                    },
+                    "CUBESeries": {
+                        "color1": "#FF4FC5",
+                        "color2": "#CE00AE",
+			            "color3": "#A600A8",
+			            "color4": "#5E197B",
+			            "color5": "#392038"
+                    },
+                    "DCSeries": {
+                        "color1": "#007AF1",
+                        "color2": "#0053A9",
+			            "color3": "#003FA9",
+			            "color4": "#003169",
+			            "color5": "#001F46"
+                    },
+                    "FrozenSeries": {
+                        "color1": "#D8EDFF",
+                        "color2": "#0059EE",
+			            "color3": "#009BD5",
+			            "color4": "#0059EE",
+			            "color5": "#86DEFF"
+                    },
+                    "LavaSeries": {
+                        "color1": "#FACE36",
+                        "color2": "#DC240E",
+			            "color3": "#9A0035",
+			            "color4": "#5D005E",
+			            "color5": "#3F0043"
+                    },
+                    "MarvelSeries": {
+                        "color1": "#ed1c24",
+                        "color2": "#d60203",
+			            "color3": "#b40102",
+			            "color4": "#610608",
+			            "color5": "#270101"    
+                    },
+                    "PlatformSeries": {
+                        "color1": "#8078ff",
+                        "color2": "#5327d6",
+			            "color3": "#3d1398",
+			            "color4": "#28085f",
+			            "color5": "#0c0026"
+                    },
+                    "ShadowSeries": {
+                        "color1": "#FFFFFF",
+                        "color2": "#999999",
+			            "color3": "#4A4A4A",
+			            "color4": "#171717",
+			            "color5": "#000000"
+                    },
+                    "SlurpSeries": {
+                        "color1": "#1DF9F7",
+                        "color2": "#37DAAD",
+			            "color3": "#00C3F1",
+			            "color4": "#1B91FF",
+			            "color5": "#1C8BDA"
+                    }
+                },
+                "heightA": 150,
+                "heightB": 170
+            },
+
+            "nameText": {
+                "textColor": "#FFFFFF",
+                "defaultFontSize": 70,
+                "offsetX": 25,
+                "offsetY": 80
+            },
+
+            "vbuck": {
+                "offsetX": 20,
+                "offsetY": 6,
+                "size": 64,
+                "color": "#FFFFFF50"
+            }
+        },
+
+        "banner": {
+            "shadowBlur": 50,
+            "heightA": 170,
+            "heightB": 190,
+            "height": 60,
+            "fontSize": 50,
+            "maxWidth": 0.75,
+            "borderThickness": 7,
+            "offsetX": -20,
+
+            "Low": {
+                "color": "#CF0067",
+                "borderColor": "#FF2C78",
+                "textColor": "#FFFFFF"
+            },
+            "High": {
+                "color": "#FFFF00",
+                "borderColor": "#FFFFFF",
+                "textColor": "#000000"
+            }
+        },
+
+        "colorA": "#404040",
+        "colorB": "#313131",
+        "gradientSize": 0.5
+    },
+
+    "overrides": {
+    }
+}

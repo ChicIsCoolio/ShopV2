@@ -1,0 +1,21 @@
+{
+  "name": "shopv2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "start node ./index.js"
+  },
+  "author": "Chic",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "node-schedule": "^2.1.0",
+    "skia-canvas": "^0.9.29",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {},
+  "description": ""
+}
