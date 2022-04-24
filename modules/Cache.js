@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { loadImage, Image, Canvas } = require('skia-canvas/lib');
+const { loadImage, Image, Canvas } = require('canvas');
 
 const cachePath = './cache/';
 
@@ -31,6 +31,25 @@ function clearPages() {
  */
 function contains(name) {
     return fs.existsSync(cachePath + name);
+}
+
+/**
+ * @param {string} name 
+ * @param {Buffer} buffer 
+ */
+function add(name, buffer) {
+    return new Promise((resolve, reject) => {
+        fs.writeFileSync(cachePath + name, buffer);
+        resolve();
+    });
+}
+
+/**
+ * @param {string} name 
+ * @param {Buffer} buffer 
+ */
+function addSync(name, buffer) {
+    fs.writeFileSync(cachePath + name, buffer);
 }
 
 /**
@@ -76,15 +95,13 @@ function addTextSync(name, data, encoding = 'utf-8') {
  * @returns {Promise<Image>}
  */
 function getImage(name) {
-    return new Promise((resolve, reject) => {
-        loadImage(cachePath + name).then(image => resolve(image), reason => reject(reason));
-    });
+    return loadImage(cachePath + name);
 }
 
 /**
  * @param {string} name 
  * @param {Image} image
- * @param {('png'|'jpeg'|'jpg'|'svg'|'pdf')} [format]
+ * @param {('raw'|'image/png'|'image/jpeg'|'application/pdf')} [format]
  * @returns {Promise<void>} 
  */
 function addImage(name, image, format) {
@@ -103,7 +120,7 @@ function getCanvas(name) {
             var canvas = new Canvas(image.width, image.height);
             canvas.getContext('2d').drawImage(image, 0, 0);
             resolve(canvas);
-        }, reason => reject(reason));
+        }, reject);
     });
 }
 
@@ -111,24 +128,20 @@ function getCanvas(name) {
 /**
  * @param {string} name 
  * @param {Canvas} canvas 
- * @param {('png'|'jpeg'|'jpg'|'svg'|'pdf')} [format]
+ * @param {('raw'|'image/png'|'image/jpeg'|'application/pdf')} [format]
  * @returns {Promise<void>}
  */
-function addCanvas(name, canvas, format = 'png') {
-    return new Promise((resolve, reject) => {
-        canvas.saveAs(cachePath + name, { format: format }).then(() => {
-            resolve();
-        }, reason => reject(reason));
-    });
+function addCanvas(name, canvas, format = 'image/png') {
+    return add(name, canvas.toBuffer(format));
 }
 
 /**
  * @param {string} url
  * @param {string} [name]
- * @param {('png'|'jpeg'|'jpg'|'svg'|'pdf')} [format]
+ * @param {('raw'|'image/png'|'image/jpeg'|'application/pdf')} [format]
  * @return {Promise<Image>}
  */
-function downloadImage(url, name, format = 'png') {
+function downloadImage(url, name, format = 'image/png') {
     var start = performance.now();
 
     if (!name) name = path.basename(url);
@@ -136,7 +149,7 @@ function downloadImage(url, name, format = 'png') {
     else return new Promise((resolve, reject) => {    
         console.log(`downloading image: \x1b[33m${name}\x1b[0m, from: \x1b[33m${url}\x1b[0m`);
         loadImage(url).then(image => {
-            console.log(`image: \x1b[33m${name}\x1b[0m downloaded in ${Math.round(performance.now() - start) / 1000} seconds`);
+            console.log(`image: \x1b[33m${name}\x1b[0m downloaded in \x1b[33m${Math.round(performance.now() - start) / 1000}\x1b[0m seconds`);
 
             addImage(name, image, format);
             resolve(image);

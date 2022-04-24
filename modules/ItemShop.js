@@ -1,7 +1,7 @@
 const { default: axios } = require("axios");
 const { createHash } = require("crypto");
 const { json, raw } = require("express");
-const { Image } = require("skia-canvas/lib");
+const { Image } = require("canvas");
 const Cache = require("./Cache");
 
 class Shop {

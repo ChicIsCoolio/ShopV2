@@ -1,4 +1,4 @@
-const { Canvas } = require('skia-canvas');
+const { Canvas } = require('canvas');
 const { Entry, Shop, Section, getItemShopSync, getItemShop } = require('./ItemShop');
 
 const { downloadImage, contains, getCanvas, addCanvas, getImage, addText, clearResults, clearPages, getText, getPages } = require('./Cache');
@@ -14,11 +14,11 @@ const resources = require('./resources');
  * @returns {{fontSize:number, measure:TextMetrics}}
  */
 function limitFontSize(ctx, fontSize, text, maxWidth, font = 'BurbankRegular') {
-    ctx.font = `${fontSize}px ${font}`;
+    ctx.font = `${fontSize}px "${font}"`;
     var measure = ctx.measureText(text);
 
     while (measure.width > maxWidth) {
-        ctx.font = `${--fontSize}px ${font}`;
+        ctx.font = `${--fontSize}px "${font}"`;
         measure = ctx.measureText(text);
     }
 
@@ -194,7 +194,7 @@ function drawEntry(entry, ignoreCache = false) {
                 ctx.fill();
 
                 resources.getImage('vbuck').then(vbuck => {
-                    ctx.font = '60px BurbankRegular';
+                    ctx.font = '60px "BurbankRegular"';
                     ctx.fillStyle = config.tile.panel.vbuck.color;
                     
                     var vbuckOffsetX = config.tile.panel.vbuck.offsetX;

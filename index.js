@@ -3,19 +3,20 @@ require('dotenv').config();
 
 const env = require('./modules/Env');
 const fs = require('fs');
-const { FontLibrary, Canvas } = require('skia-canvas/lib');
+const { registerFont, Canvas } = require('canvas');
 const { resolve } = require('path');
 const server = require('./modules/server');
 const { getItemShop } = require('./modules/ItemShop');
 const twitter = require('./modules/Twitter');
+const { getImage } = require('./modules/resources');
 server.start();
 
 if (!env.getBoolean('DisableTwitter')) {
     twitter.start();
 }
 
-FontLibrary.use("BurbankCondensed", ['./resources/BurbankCondensed.ttf']);
-FontLibrary.use("BurbankRegular", ['./resources/BurbankRegular.otf']);
+registerFont('./resources/BurbankCondensed.ttf', { family: "BurbankCondensed" });
+registerFont('./resources/BurbankRegular.otf', { family: "BurbankRegular" });
 
 fs.watchFile('./config.json', () => {
     delete require.cache[require.resolve('./config.json')];

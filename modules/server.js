@@ -14,7 +14,7 @@ app.get('/generated', (req, res) => {
         tweetCanvases('shop test', pages);
         
         if (page >= pages.length || page < 0) res.status(404).send(`Out of range (0 - ${pages.length - 1})`);
-        else res.contentType('image/png').end(pages[page].toBufferSync('png'));
+        else res.contentType('image/png').end(pages[page].toBuffer());
     });
 });
 

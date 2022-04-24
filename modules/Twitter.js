@@ -1,7 +1,7 @@
 const env = require('./Env');
 const { response } = require('express');
 const { RecurrenceRule, scheduleJob } = require('node-schedule');
-const { Canvas } = require('skia-canvas/lib');
+const { Canvas } = require('canvas');
 const Twitter = require('twitter');
 const { drawShop } = require('./drawing');
 const { getItemShop } = require('./ItemShop');
@@ -42,7 +42,7 @@ function tweet(status) {
 function uploadCanvas(canvas) {
     return new Promise((resolve, reject) => {
         client.post('media/upload', {
-            media: canvas.toBufferSync('png')
+            media: canvas.toBuffer()
         }).then(resolve, reject);
     });
 }

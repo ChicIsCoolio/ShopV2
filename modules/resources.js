@@ -1,9 +1,12 @@
-const { loadImage } = require('skia-canvas');
+const { loadImage, Image } = require('canvas');
 
 module.exports = {
+    /**
+     * @param {string} name 
+     * @param {string} extension 
+     * @returns {Promise<Image>}
+     */
     getImage: function(name, extension = 'png') {
-        return new Promise((resolve, reject) => {
-            loadImage(`./resources/${name}.${extension}`).then(image => resolve(image), reason => reject(reason));
-        });
+        return  loadImage(`./resources/${name}.${extension}`);
     }
 }
